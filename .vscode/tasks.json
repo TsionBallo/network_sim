@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "main.cpp",
+                "layers/application.cpp",
+                "layers/transport.cpp",
+                "layers/network.cpp",
+                "layers/link.cpp",
+                "-o",
+                "network_sim"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "./network_sim",
+            "group": "test",
+            "dependsOn": ["build"]
+        }
+    ]
+}
